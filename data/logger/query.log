@@ -17,3 +17,4 @@
 [info] 2022-11-18T03:50:37.849Z "Executing (default): SELECT \"id\", \"firstName\", \"lastName\", \"email\", \"createdAt\", \"updatedAt\" FROM \"Users\" AS \"User\" LIMIT 10 OFFSET 0;"
 [info] 2022-11-18T03:53:13.602Z "Executing (default): SELECT 1+1 AS result"
 [info] 2022-11-18T03:53:25.249Z "Executing (default): SELECT 1+1 AS result"
+[info] 2022-11-18T03:57:25.809Z "Executing (default): SELECT 1+1 AS result"

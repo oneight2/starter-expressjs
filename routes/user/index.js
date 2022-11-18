@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const { isLogin } = require("../../middleware/auth");
 
-const { findAll, findOne } = require("../../controller/index");
+const { findAll, findOne } = require("../../controller/user");
 
 /**
  * @openapi

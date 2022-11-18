@@ -1,6 +1,6 @@
-const User = require("../models").User;
-const response = require("../helpers/response");
-const Logger = require("../middleware/logger");
+const User = require("../../models").User;
+const response = require("../../helpers/response");
+const Logger = require("../../middleware/logger");
 const Joi = require("joi");
 
 module.exports = {
