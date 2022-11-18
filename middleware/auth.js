@@ -7,7 +7,7 @@ module.exports = {
     try {
       const token = req.headers.authorization
         ? req.headers.authorization.replace("Bearer ", "")
-        : response.unauthorized(res, 'Unauthorized')
+        : response.unauthorized(res, "Unauthorized");
 
       const key = process.env.JWT_KEY;
 

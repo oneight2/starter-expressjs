@@ -1,5 +1,6 @@
-const Pokemon = require("../models").Pokemon;
+const User = require("../models").User;
 const response = require("../helpers/response");
+const Logger = require("../middleware/logger");
 const Joi = require("joi");
 
 module.exports = {
@@ -8,9 +9,12 @@ module.exports = {
     const limit = +req.query.limit || 10;
     const offset = (page - 1) * limit;
     try {
-      const data = await Pokemon.findAndCountAll({
+      const data = await User.findAndCountAll({
         limit,
         offset,
+        logging: (sql, queryObject) => {
+          Logger.info(sql);
+        },
       });
       response.success(
         res,
@@ -22,25 +26,27 @@ module.exports = {
       );
     } catch (error) {
       response.badrequest(res, error.message);
+      Logger.error(error);
     }
   },
   findOne: async (req, res) => {
     const { id } = req.params;
     try {
-      const data = await Pokemon.findByPk(id);
+      const data = await User.findByPk(id);
       if (data) {
         return response.success(
           res,
           data,
-          "Success get data pokemon",
+          "Success get data user",
           null,
           null,
           null
         );
       }
-      response.badrequest(res, `Pokemon with id ${id} is not found`);
+      response.badrequest(res, `User with id ${id} is not found`);
     } catch (error) {
       response.badrequest(res, err.message);
+      Logger.error(error);
     }
   },
 };

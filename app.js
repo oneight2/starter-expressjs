@@ -42,7 +42,7 @@ app.use("/api", routes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 /* GET home page. */
 app.get("/", function (req, res, next) {
-  res.render("index", { title: "Multimedia API" });
+  res.render("index", { title: "Hello World" });
 });
 app.use("*", (req, res) => {
   response.notfound(res, "Endpoint Not Found");
